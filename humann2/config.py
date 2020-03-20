@@ -354,8 +354,8 @@ genefamilies_file="_genefamilies"
 metaphlan_opts=["-t","rel_ab"]
 metaphlan_version={
     "flag" : "--version",
-    "major" : 2,
-    "minor" : 9,
+    "major" : 3,
+    "minor" : 0,
     "line" : 0,
     "column" : 2}
 metaphlan_2p9_db_version="201901"

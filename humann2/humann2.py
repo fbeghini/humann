@@ -8,7 +8,7 @@ the coverage and abundance of microbial pathways in a community
 from metagenomic data. Sequencing a metagenome typically produces millions 
 of short DNA/RNA reads.
 
-Dependencies: MetaPhlAn2, ChocoPhlAn, Bowtie2, and ( Diamond or Rapsearch2 or Usearch )
+Dependencies: MetaPhlAn, ChocoPhlAn, Bowtie2, and ( Diamond or Rapsearch2 or Usearch )
 
 To Run: humann2 -i <input.fastq> -o <output_dir>
 
@@ -725,14 +725,14 @@ def check_requirements(args):
                         + "database location. For additional information, please "
                         + "see the HUMAnN2 User Manual.")
                 
-        # Check that the metaphlan2 executable can be found
+        # Check that the metaphlan executable can be found
         if not config.bypass_prescreen and not config.bypass_nucleotide_index:
-            if not utilities.find_exe_in_path("metaphlan2.py"): 
-                sys.exit("CRITICAL ERROR: The metaphlan2.py executable can not be found. "  
+            if not utilities.find_exe_in_path("metaphlan"): 
+                sys.exit("CRITICAL ERROR: The metaphlan executable can not be found. "  
                     "Please check the install.")
 
-            # Check the metaphlan2 version
-            utilities.check_software_version("metaphlan2.py",config.metaphlan_version)
+            # Check the metaphlan version
+            utilities.check_software_version("metaphlan",config.metaphlan_version)
 
         # Check that the bowtie2 executable can be found
         if not config.bypass_nucleotide_search:

@@ -39,14 +39,14 @@ def alignment(input):
     Runs metaphlan to identify initial list of bugs
     """
    
-    exe="metaphlan2.py"
+    exe="metaphlan"
     opts=config.metaphlan_opts  
 
     # find the location of the metaphlan dir
     metaphlan_dir=utilities.return_exe_path(exe)
  
     #determine input type as fastq or fasta
-    input_type="multi" + utilities.fasta_or_fastq(input)
+    input_type=utilities.fasta_or_fastq(input)
     
     # outfile name
     bug_file = utilities.name_temp_file(config.bugs_list_name)
@@ -94,7 +94,7 @@ def create_custom_database(chocophlan_dir, bug_file):
             # search for the lines that have the species-level information
             if re.search("s__", line):
                 # check threshold
-                read_percent=float(line.split("\t")[-1])
+                read_percent=float(line.split("\t")[2])
                 if read_percent >= config.prescreen_threshold:
                     total_reads_covered += read_percent
                     organism_info=line.split("\t")[0]
